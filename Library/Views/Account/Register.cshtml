@@ -1,0 +1,29 @@
+@{
+  Layout = "_Layout";
+}
+
+@using Library.ViewModels
+
+@model RegisterViewModel
+
+<h2>Register a new user</h2>
+<hr />
+@using (Html.BeginForm("Register", "Account", FormMethod.Post))
+{
+    <label for="Email">Email:</label>
+    @Html.TextBoxFor(user=> user.Email)
+
+    <label for="Role">Role:</label>
+    <select name="Role" id="Role">
+    <option value="Librarian">Librarian</option>
+    <option value="Patron">Patron</option>
+  </select>
+
+    <label for="Password">Password:</label>
+    @Html.PasswordFor(user=> user.Password)
+
+    <label for="ConfirmPassword">Confirm:</label>
+    @Html.PasswordFor(user=> user.ConfirmPassword)
+
+    <input type="submit" value="Register" />
+}
